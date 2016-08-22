@@ -28,7 +28,8 @@ public class ButtonActivity extends AppCompatActivity {
             @Override
             public void onClick(final View view) {
                 view.setEnabled(false);
-                Observable.just(longRunningOperation())
+                Observable
+                        .just(longRunningOperation())
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(new Action1<String>() {
